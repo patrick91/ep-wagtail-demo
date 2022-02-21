@@ -3,11 +3,10 @@ ports:
 - port: 3000
 
 tasks:
-  - name: frontend dependencies
+  - name: frontend
     init: |
-      npm run dev
+      cd frontend
       npm install
-      npm run configure-database
     command: |
       cd frontend
       npm run dev
