@@ -2,7 +2,7 @@ ports:
 - port: 8000
   onOpen: open-browser
 - port: 3000
-  onOpen: open-browser
+  onOpen: open-preview
 
 
 tasks:
@@ -16,6 +16,7 @@ tasks:
       cd frontend
       npm install
     command: |
+      gp await-port 3000
       cd frontend
       npm run dev
     openMode: tab-after
@@ -26,7 +27,6 @@ tasks:
       pip install poetry
       poetry config virtualenvs.create true 
       poetry config virtualenvs.in-project true 
-      poetry env use python 
       poetry install
     command: |
       cd cms
