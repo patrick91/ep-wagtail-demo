@@ -1,8 +1,16 @@
 ports:
 - port: 8000
+  onOpen: open-browser
 - port: 3000
+  onOpen: open-browser
+
 
 tasks:
+  - name: python version
+    init: |
+      pyenv install 3.10.2
+      pyenv global 3.10.2
+      gp sync-done python
   - name: frontend
     init: |
       cd frontend
@@ -10,11 +18,7 @@ tasks:
     command: |
       cd frontend
       npm run dev
-    openMode: split-left
-  - name: python version
-    init: |
-      pyenv install 3.10.2
-      gp sync-done python
+    openMode: tab-after
   - name: cms
     init: |
       cd cms
