@@ -16,7 +16,8 @@ tasks:
       cd frontend
       npm install
     command: |
-      gp await-port 3000
+      gp await-port 8000
+      eval $(gp env -e API_URL=$(gp url 8000))
       cd frontend
       npm run dev
     openMode: tab-after

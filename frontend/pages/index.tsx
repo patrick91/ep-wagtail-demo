@@ -105,7 +105,8 @@ const Home: NextPage<{ title: string; body: BlockType[] }> = ({
 };
 
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:8000/api/v2/pages/home");
+  const baseUrl = process.env.API_URL || "http://localhost:8000";
+  const res = await fetch(`${baseUrl}/api/v2/pages/home`);
   const data = await res.json();
 
   return {
