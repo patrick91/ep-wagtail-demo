@@ -11,9 +11,14 @@ tasks:
       cd frontend
       npm run dev
     openMode: split-left
+  - name: python version
+    init: |
+      pyenv install 3.10.2
+      gp sync-done python
   - name: cms
     init: |
       cd cms
+      gp sync-await python
       pip install poetry
       poetry config virtualenvs.create true 
       poetry config virtualenvs.in-project true 
