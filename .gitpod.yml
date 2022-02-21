@@ -28,6 +28,7 @@ tasks:
       cd cms
       gp sync-await python
       pip install poetry
+      poetry env use python3.10
       poetry config virtualenvs.create true 
       poetry config virtualenvs.in-project true 
       poetry install
